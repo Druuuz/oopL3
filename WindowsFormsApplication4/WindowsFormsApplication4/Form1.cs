@@ -16,7 +16,7 @@ namespace WindowsFormsApplication4
     public partial class Form1 : Form
     {
         Button btn;
-       public  List<Computer> computers = new List<Computer>();
+       public  List<dynamic> computers = new List<dynamic>();
 
         public Form1()
         {
@@ -51,7 +51,7 @@ namespace WindowsFormsApplication4
             if (computers.Count != 0)
             {
                
-                dataGridView1.ColumnCount = 6;
+                dataGridView1.ColumnCount = 7;
                 dataGridView1.RowCount = computers.Count;
 
                 dataGridView1.Columns[0].HeaderCell.Value = "Видеокарта";
@@ -60,6 +60,7 @@ namespace WindowsFormsApplication4
                 dataGridView1.Columns[3].HeaderCell.Value = "ОЗУ";
                 dataGridView1.Columns[4].HeaderCell.Value = "ПЗУ";
                 dataGridView1.Columns[5].HeaderCell.Value = "Корпус";
+                dataGridView1.Columns[6].HeaderCell.Value = "Доп. оборуд.";
                 for (int i = 0; i < dataGridView1.RowCount; i++)
                 {
                     dataGridView1.Rows[i].Cells[0].Value = computers[i].videocard;
@@ -68,6 +69,25 @@ namespace WindowsFormsApplication4
                     dataGridView1.Rows[i].Cells[3].Value = computers[i].DDR;
                     dataGridView1.Rows[i].Cells[4].Value = computers[i].memory;
                     dataGridView1.Rows[i].Cells[5].Value = computers[i].box;
+                    string type = computers[i].type;
+                    switch (type)
+                    {
+                        case "game":
+                            dataGridView1.Rows[i].Cells[6].Value = computers[i].secondVideocard;
+                            break;
+                        case "pro":
+                            dataGridView1.Rows[i].Cells[6].Value = computers[i].secondDDR_Video;
+                            break;
+                        case "portable":
+                            dataGridView1.Rows[i].Cells[6].Value = computers[i].Drive;
+                            break;
+                        case "office":
+                            dataGridView1.Rows[i].Cells[6].Value = computers[i].SecondStorage;
+                            break;
+                        case "multimedia":
+                            dataGridView1.Rows[i].Cells[6].Value = computers[i].soundcard;
+                            break;
+                    }
 
                 }
             }
@@ -103,7 +123,7 @@ namespace WindowsFormsApplication4
         {
             try
             {
-                computers.Add(new Computer(comboBox6.SelectedItem.ToString(), comboBox5.SelectedItem.ToString(), comboBox4.SelectedItem.ToString(), comboBox3.SelectedItem.ToString(), comboBox2.SelectedItem.ToString(), comboBox1.SelectedItem.ToString(),"game"));
+                computers.Add(new GamersComputer(comboBox6.SelectedItem.ToString(), comboBox5.SelectedItem.ToString(), comboBox4.SelectedItem.ToString(), comboBox3.SelectedItem.ToString(), comboBox2.SelectedItem.ToString(), comboBox1.SelectedItem.ToString(),"game", comboBox31.SelectedItem.ToString()));
                 DisplayTable();
             }
             catch(Exception)
@@ -116,7 +136,7 @@ namespace WindowsFormsApplication4
         {
             try
             {
-                computers.Add(new Computer(comboBox12.SelectedItem.ToString(), comboBox11.SelectedItem.ToString(), comboBox10.SelectedItem.ToString(), comboBox9.SelectedItem.ToString(), comboBox8.SelectedItem.ToString(), comboBox7.SelectedItem.ToString(),"office"));
+                computers.Add(new ServerComputer(comboBox12.SelectedItem.ToString(), comboBox11.SelectedItem.ToString(), comboBox10.SelectedItem.ToString(), comboBox9.SelectedItem.ToString(), comboBox8.SelectedItem.ToString(), comboBox7.SelectedItem.ToString(),"office", comboBox32.SelectedItem.ToString()));
                 DisplayTable();
             }
             catch (Exception)
@@ -129,7 +149,7 @@ namespace WindowsFormsApplication4
         {
             try
             {
-                computers.Add(new Computer(comboBox18.SelectedItem.ToString(), comboBox17.SelectedItem.ToString(), comboBox16.SelectedItem.ToString(), comboBox15.SelectedItem.ToString(), comboBox14.SelectedItem.ToString(), comboBox13.SelectedItem.ToString(),"multimedia"));
+                computers.Add(new MultimediaComputer(comboBox18.SelectedItem.ToString(), comboBox17.SelectedItem.ToString(), comboBox16.SelectedItem.ToString(), comboBox15.SelectedItem.ToString(), comboBox14.SelectedItem.ToString(), comboBox13.SelectedItem.ToString(),"multimedia", comboBox33.SelectedItem.ToString()));
                 DisplayTable();
             }
             catch (Exception)
@@ -142,7 +162,7 @@ namespace WindowsFormsApplication4
         {
             try
             {
-                computers.Add(new Computer(comboBox24.SelectedItem.ToString(), comboBox23.SelectedItem.ToString(), comboBox22.SelectedItem.ToString(), comboBox21.SelectedItem.ToString(), comboBox20.SelectedItem.ToString(), comboBox19.SelectedItem.ToString(),"pro"));
+                computers.Add(new ProComputer(comboBox24.SelectedItem.ToString(), comboBox23.SelectedItem.ToString(), comboBox22.SelectedItem.ToString(), comboBox21.SelectedItem.ToString(), comboBox20.SelectedItem.ToString(), comboBox19.SelectedItem.ToString(),"pro", comboBox34.SelectedItem.ToString()));
                 DisplayTable();
             }
             catch (Exception)
@@ -155,7 +175,7 @@ namespace WindowsFormsApplication4
         {
             try
             {
-                computers.Add(new Computer(comboBox30.SelectedItem.ToString(), comboBox29.SelectedItem.ToString(), comboBox28.SelectedItem.ToString(), comboBox27.SelectedItem.ToString(), comboBox26.SelectedItem.ToString(), comboBox25.SelectedItem.ToString(),"portable"));
+                computers.Add(new HomeComputer(comboBox30.SelectedItem.ToString(), comboBox29.SelectedItem.ToString(), comboBox28.SelectedItem.ToString(), comboBox27.SelectedItem.ToString(), comboBox26.SelectedItem.ToString(), comboBox25.SelectedItem.ToString(),"portable", comboBox35.SelectedItem.ToString()));
                 DisplayTable();
             }
             catch (Exception)
@@ -184,9 +204,10 @@ namespace WindowsFormsApplication4
                 {
                     serializer.Serialize(mystream, computers);
                 }
-                catch (Exception)
+                catch (Exception name)
                 {
-                    MessageBox.Show("Файл не сохранен");
+                    
+                    MessageBox.Show("Файл не сохранен" + name.Message);
                 }
                 finally
                 {
@@ -214,7 +235,7 @@ namespace WindowsFormsApplication4
                 try
                 {                 
                     BinaryFormatter deserializer = new BinaryFormatter();
-                    computers = deserializer.Deserialize(mystream) as List<Computer>;
+                    computers = deserializer.Deserialize(mystream) as List<dynamic>;
                 }
                 catch (Exception)
                 {
@@ -277,7 +298,10 @@ namespace WindowsFormsApplication4
                             SyncLists(comboBox4, ChangeForm.comboBox4);
                             SyncLists(comboBox5, ChangeForm.comboBox5);
                             SyncLists(comboBox6, ChangeForm.comboBox6);
-                           
+                            SyncLists(comboBox31, ChangeForm.comboBox7);
+                            ChangeForm.comboBox7.SelectedItem = computers[numToChange].secondVideocard;
+
+
                             break;
                         case "office":
                             SyncLists(comboBox7, ChangeForm.comboBox1);
@@ -286,7 +310,9 @@ namespace WindowsFormsApplication4
                             SyncLists(comboBox10, ChangeForm.comboBox4);
                             SyncLists(comboBox11, ChangeForm.comboBox5);
                             SyncLists(comboBox12, ChangeForm.comboBox6);
-                          
+                            SyncLists(comboBox32, ChangeForm.comboBox7);
+                            ChangeForm.comboBox7.SelectedItem = computers[numToChange].SecondStorage;
+
                             break;
                         case "multimedia":
                             SyncLists(comboBox13, ChangeForm.comboBox1);
@@ -295,7 +321,9 @@ namespace WindowsFormsApplication4
                             SyncLists(comboBox16, ChangeForm.comboBox4);
                             SyncLists(comboBox17, ChangeForm.comboBox5);
                             SyncLists(comboBox18, ChangeForm.comboBox6);
-                            
+                            SyncLists(comboBox33, ChangeForm.comboBox7);
+                            ChangeForm.comboBox7.SelectedItem = computers[numToChange].soundcard;
+
                             break;
                         case "pro":
                             SyncLists(comboBox19, ChangeForm.comboBox1);
@@ -304,7 +332,9 @@ namespace WindowsFormsApplication4
                             SyncLists(comboBox22, ChangeForm.comboBox4);
                             SyncLists(comboBox23, ChangeForm.comboBox5);
                             SyncLists(comboBox24, ChangeForm.comboBox6);
-                            
+                            SyncLists(comboBox34, ChangeForm.comboBox7);
+                            ChangeForm.comboBox7.SelectedItem = computers[numToChange].secondDDR_Video;
+
                             break;
                         case "portable":
                             SyncLists(comboBox25, ChangeForm.comboBox1);
@@ -313,7 +343,9 @@ namespace WindowsFormsApplication4
                             SyncLists(comboBox28, ChangeForm.comboBox4);
                             SyncLists(comboBox29 ,ChangeForm.comboBox5);
                             SyncLists(comboBox30, ChangeForm.comboBox6);
-                            
+                            SyncLists(comboBox35, ChangeForm.comboBox7);
+                            ChangeForm.comboBox7.SelectedItem = computers[numToChange].Drive;
+
                             break;
 
                     }

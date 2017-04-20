@@ -13,11 +13,11 @@ namespace WindowsFormsApplication4
     public partial class Form2 : Form
     {
         
-        List<Computer> computers;
+        List<dynamic> computers;
         int number;
         Form1 MainForm;
 
-        public Form2(List<Computer> computers, int number,Form1 MainForm )
+        public Form2(List<dynamic> computers, int number,Form1 MainForm )
         {
             InitializeComponent();
             this.computers = computers;
@@ -34,8 +34,28 @@ namespace WindowsFormsApplication4
             computers[number].processor = comboBox2.SelectedItem.ToString();
             computers[number].motherboard = comboBox3.SelectedItem.ToString();
             computers[number].memory = comboBox4.SelectedItem.ToString();
-            computers[number].DDR = comboBox4.SelectedItem.ToString();
+            computers[number].DDR = comboBox5.SelectedItem.ToString();
             computers[number].box = comboBox6.SelectedItem.ToString();
+
+            string type = computers[number].type;
+            switch (type)
+            {
+                case "game":
+                    computers[number].secondVideocard = comboBox7.SelectedItem.ToString();
+                    break;
+                case "pro":
+                    computers[number].secondDDR_Video = comboBox7.SelectedItem.ToString();
+                    break;
+                case "portable":
+                    computers[number].Drive = comboBox7.SelectedItem.ToString();
+                    break;
+                case "office":
+                    computers[number].SecondStorage = comboBox7.SelectedItem.ToString();
+                    break;
+                case "multimedia":
+                    computers[number].soundcard = comboBox7.SelectedItem.ToString();
+                    break;
+            }
 
             MainForm.DisplayTable();
             this.Dispose();

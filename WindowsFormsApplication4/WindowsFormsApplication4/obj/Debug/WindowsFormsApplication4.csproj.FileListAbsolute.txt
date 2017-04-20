@@ -8,3 +8,6 @@ C:\Users\Druz\Desktop\oop\WindowsFormsApplication4\WindowsFormsApplication4\obj\
 C:\Users\Druz\Desktop\oop\WindowsFormsApplication4\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.exe
 C:\Users\Druz\Desktop\oop\WindowsFormsApplication4\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.pdb
 C:\Users\Druz\Desktop\oop\WindowsFormsApplication4\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.Form2.resources
+D:\oopL3\oopL3\WindowsFormsApplication4\WindowsFormsApplication4\bin\Debug\WindowsFormsApplication4.exe.config
+D:\oopL3\oopL3\WindowsFormsApplication4\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.exe
+D:\oopL3\oopL3\WindowsFormsApplication4\WindowsFormsApplication4\obj\Debug\WindowsFormsApplication4.pdb

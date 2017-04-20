@@ -83,6 +83,11 @@
             this.button8 = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.comboBox31 = new System.Windows.Forms.ComboBox();
+            this.comboBox32 = new System.Windows.Forms.ComboBox();
+            this.comboBox33 = new System.Windows.Forms.ComboBox();
+            this.comboBox34 = new System.Windows.Forms.ComboBox();
+            this.comboBox35 = new System.Windows.Forms.ComboBox();
             this.Pages.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -112,6 +117,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.comboBox31);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.comboBox6);
             this.tabPage1.Controls.Add(this.comboBox5);
@@ -130,7 +136,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(386, 312);
+            this.button1.Location = new System.Drawing.Point(387, 346);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -258,6 +264,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.comboBox32);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.comboBox12);
             this.tabPage2.Controls.Add(this.pictureBox2);
@@ -271,7 +278,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(652, 411);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "OfficePC";
+            this.tabPage2.Text = "ServerPC";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -380,6 +387,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.comboBox33);
             this.tabPage3.Controls.Add(this.button3);
             this.tabPage3.Controls.Add(this.comboBox18);
             this.tabPage3.Controls.Add(this.pictureBox3);
@@ -512,6 +520,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.comboBox34);
             this.tabPage4.Controls.Add(this.button4);
             this.tabPage4.Controls.Add(this.comboBox24);
             this.tabPage4.Controls.Add(this.pictureBox4);
@@ -638,6 +647,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.comboBox35);
             this.tabPage5.Controls.Add(this.button5);
             this.tabPage5.Controls.Add(this.comboBox30);
             this.tabPage5.Controls.Add(this.pictureBox5);
@@ -650,12 +660,12 @@
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(652, 411);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "PortablePC";
+            this.tabPage5.Text = "HomePC";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(378, 336);
+            this.button5.Location = new System.Drawing.Point(379, 366);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 13;
@@ -809,6 +819,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(1124, 392);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(84, 21);
@@ -824,9 +835,76 @@
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(93, 21);
             this.radioButton2.TabIndex = 6;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Изменить";
             this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // comboBox31
+            // 
+            this.comboBox31.FormattingEnabled = true;
+            this.comboBox31.Items.AddRange(new object[] {
+            "SLI gtx 1080",
+            "SLI gtx 1080 ti"});
+            this.comboBox31.Location = new System.Drawing.Point(364, 303);
+            this.comboBox31.Name = "comboBox31";
+            this.comboBox31.Size = new System.Drawing.Size(131, 24);
+            this.comboBox31.TabIndex = 8;
+            this.comboBox31.Text = "Доп видеокарта";
+            // 
+            // comboBox32
+            // 
+            this.comboBox32.FormattingEnabled = true;
+            this.comboBox32.Items.AddRange(new object[] {
+            "1tb HDD",
+            "2tb HDD"});
+            this.comboBox32.Location = new System.Drawing.Point(334, 266);
+            this.comboBox32.Name = "comboBox32";
+            this.comboBox32.Size = new System.Drawing.Size(131, 24);
+            this.comboBox32.TabIndex = 13;
+            this.comboBox32.Text = "Доп память";
+            // 
+            // comboBox33
+            // 
+            this.comboBox33.FormattingEnabled = true;
+            this.comboBox33.Items.AddRange(new object[] {
+            "Samsung 7.1",
+            "KIngston 7.1",
+            "Samsung 5.1",
+            "KIngston 5.1"});
+            this.comboBox33.Location = new System.Drawing.Point(352, 310);
+            this.comboBox33.Name = "comboBox33";
+            this.comboBox33.Size = new System.Drawing.Size(131, 24);
+            this.comboBox33.TabIndex = 19;
+            this.comboBox33.Text = "Звуковая карта";
+            // 
+            // comboBox34
+            // 
+            this.comboBox34.FormattingEnabled = true;
+            this.comboBox34.Items.AddRange(new object[] {
+            "Samsung 16 gb 2240 + 1tb",
+            "Kingston 16 gb 2240+1tb",
+            "Samsung 32 gb 2240+2tb",
+            "Samsung 32 gb 2600",
+            "Kingston 32 gb 2600 ",
+            "1tb HDD",
+            "2tb HDD"});
+            this.comboBox34.Location = new System.Drawing.Point(342, 299);
+            this.comboBox34.Name = "comboBox34";
+            this.comboBox34.Size = new System.Drawing.Size(131, 24);
+            this.comboBox34.TabIndex = 13;
+            this.comboBox34.Text = "Доп оборуд";
+            // 
+            // comboBox35
+            // 
+            this.comboBox35.FormattingEnabled = true;
+            this.comboBox35.Items.AddRange(new object[] {
+            "Samsung",
+            "HP",
+            "Dell"});
+            this.comboBox35.Location = new System.Drawing.Point(347, 314);
+            this.comboBox35.Name = "comboBox35";
+            this.comboBox35.Size = new System.Drawing.Size(131, 24);
+            this.comboBox35.TabIndex = 14;
+            this.comboBox35.Text = "Дисковод";
             // 
             // Form1
             // 
@@ -920,6 +998,11 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.ComboBox comboBox31;
+        private System.Windows.Forms.ComboBox comboBox32;
+        private System.Windows.Forms.ComboBox comboBox33;
+        private System.Windows.Forms.ComboBox comboBox34;
+        private System.Windows.Forms.ComboBox comboBox35;
     }
 }
 

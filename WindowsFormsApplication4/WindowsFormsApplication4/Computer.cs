@@ -17,6 +17,7 @@ namespace WindowsFormsApplication4
         public string motherboard;
         public string box;
         public string type;
+        public string add;
 
         public Computer(string box, string DDR, string memory, string motherboard, string processor, string videocard,string type)
         {
@@ -27,6 +28,7 @@ namespace WindowsFormsApplication4
             this.motherboard = motherboard;
             this.box = box;
             this.type = type;
+            
         }
     }
 }
